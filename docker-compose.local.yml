@@ -1,7 +1,8 @@
 volumes:
   abantether_local_postgres_data: {}
   abantether_local_postgres_data_backups: {}
-  
+  abantether_local_redis_data: { }
+
 
 services:
   django:
@@ -32,3 +33,11 @@ services:
       - abantether_local_postgres_data_backups:/backups
     env_file:
       - ./.envs/.local/.postgres
+
+  redis:
+    image: docker.io/redis:6
+    container_name: abantether_local_redis
+
+    volumes:
+      - abantether_local_redis_data:/data
+
