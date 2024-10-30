@@ -23,7 +23,13 @@ class Order(models.Model):
     class Meta:
         ordering = ['-created_at']
 
+    def __str__(self):
+        return f'{self.user} - {self.amount} - {self.status}'
+
 
 class Wallet(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     balance = models.DecimalField(max_digits=18, decimal_places=2)
+
+    def __str__(self):
+        return f'{self.user.name} - {self.balance}'
