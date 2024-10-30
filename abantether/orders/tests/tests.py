@@ -1,10 +1,10 @@
 from decimal import Decimal
 from django.test import TestCase
 from django.contrib.auth import get_user_model
-from rest_framework.exceptions import ValidationError
+from django.core.exceptions import ValidationError
 from rest_framework.test import APITestCase
-from .models import Order, Wallet
-from .services import OrderService
+from abantether.orders.models import Order, Wallet
+from abantether.orders.services import OrderService
 
 User = get_user_model()
 
